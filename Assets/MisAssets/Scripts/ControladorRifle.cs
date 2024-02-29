@@ -8,20 +8,7 @@ using UnityEngine;
 
 public class ControladorRifle : MonoBehaviour
 {
-    #region 1)Definicion de variables
     [SerializeField] private Vector3 desfasePos;
-    #endregion
-
-    #region 2)Funciones predeterminadas Unity
-    void Awake()
-    {
-        
-    }
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -29,11 +16,13 @@ public class ControladorRifle : MonoBehaviour
         _posRifle.z = 0f;
 
         transform.position = _posRifle + desfasePos;
-        
+
+        //Acción al pulsar botón izquierdo
+        /*
+        if (Input.GetMouseButtonDown(0))
+        {
+            //TODO: Sonido rifle
+        }
+        */
     }
-    #endregion
-
-    #region 3)Metodos originales
-
-    #endregion
 }
