@@ -3,41 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///
+/// DESCRIPCION:
+///
+/// </summary>
 
 public class PlayerDataManager : MonoBehaviour
 {
+
+    // -----------------------------------------------------------------
+    #region 1) Definicion de Variables
     public static PlayerDataManager instancia;
 
-    public PlayerData datosJugador; // contiene toda la info que se va a guardar/cargar
-
-    void Awake()
-    {
+    public DatosPlayer datosPlayer;
+#endregion
+// -----------------------------------------------------------------
+#region 2) Funciones Predeterminadas de Unity 
+void Awake (){
         instancia = this;
-        datosJugador.puntuacion = 0;
-        datosJugador.record = 0;
-    }
+	}
 
-
-    public void AgregarPuntos(int _puntos)
+    // Start is called before the first frame update
+    void Start()
     {
-        datosJugador.puntuacion += _puntos;
-        //HUDManager.instancia.ActualizarPuntuacion();
-        Debug.Log(datosJugador.puntuacion);
+        
     }
 
-    public bool RecordSuperado()
+    // Update is called once per frame
+    void Update()
     {
-        if (datosJugador.puntuacion > datosJugador.record) return true;
-        else return false;
+        
     }
-  
+#endregion
+// -----------------------------------------------------------------
+#region 3) Metodos Originales
+    public void AgregarPuntos (int _puntosNuevos)
+    {
+        datosPlayer.puntuacion += _puntosNuevos;
+    }
+#endregion
+// -----------------------------------------------------------------
+
 }
 
-
-// Se definen los datos que van a ser exportados o importados en un sistema de guardado de partidas
 [Serializable]
-public class PlayerData
+public class DatosPlayer
 {
     public int puntuacion;
-    public int record;
 }
